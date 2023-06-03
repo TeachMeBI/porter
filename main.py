@@ -66,7 +66,7 @@ schedule.every(INTERVAL).minutes.do(task)
 
 
 if __name__ == '__main__':
-    # while True:
-    #     schedule.run_pending()
-    #     time.sleep(1)
-    task()
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
+    # task()

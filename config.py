@@ -6,14 +6,14 @@ with open('config.json', 'r', encoding='utf-8') as f:
 
 # neo4j
 GRAPH = Graph(
-    configs['neo_url_test'], 
+    configs['neo_url'], 
     auth=(configs['neo_usr'], configs['neo_password']), 
     name=configs['neo_name']
 )
 
 # influxdb params
-TOKEN  = configs['influx_token_test']   # test
-URL    = configs['influx_url_test']     # test
+TOKEN  = configs['influx_token']   # test
+URL    = configs['influx_url']     # test
 ORG    = configs['org']
 BUCKET = configs['bucket']
 MEASUREMENT = configs['measurement']

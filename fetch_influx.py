@@ -20,7 +20,7 @@ def fetch_mock_data(url: str, token: str, org: str, bucket: str, measurement: st
                     'userId': record_dict['userId'],
                     'newsId': record_dict['newsId'],
                     'type':   record_dict['type'],
-                    'exposureTime': record_dict['exposureTime'],
+                    'exposureTime': record_dict['exposureTime'].replace('\\', ''),
                     'dwelltime': int(record_dict['dwelltime']),
                 })
             except Exception as e:

@@ -9,13 +9,15 @@ from config import *
 
 def task():
     
-    def n_min_before_now(n: int) -> str:
+    def n_sec_before_now(n: int) -> str:
         now = datetime.datetime.now()
-        before = now - datetime.timedelta(minutes=n)
+        before = now - datetime.timedelta(seconds=n)
         return before.strftime('%Y-%m-%d %H:%M:%S')
     
-    now = n_min_before_now(0)
-    before = n_min_before_now(10)
+    now = n_sec_before_now(0)
+    before = n_sec_before_now(10)
+
+    print(f'Collecting mocks from {before} to {now}:')
     mock = fetch_mock_data(URL, TOKEN, ORG, BUCKET, MEASUREMENT, INTERVAL)
     if len(mock) == 0:
         print('No mock data found.')
@@ -62,7 +64,7 @@ def task():
         print(f'Exception: {e.with_traceback()}')
 
 
-schedule.every(INTERVAL).minutes.do(task)
+schedule.every(INTERVAL).seconds.do(task)
 
 
 if __name__ == '__main__':

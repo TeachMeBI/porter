@@ -9,7 +9,7 @@ def fetch_mock_data(url: str, token: str, org: str, bucket: str, measurement: st
     res: List[Dict[str, str | int]] = []
     query_api = client.query_api()
     query = f"""from(bucket: "{bucket}")
-    |> range(start: -{step}m)
+    |> range(start: -{step}s)
     |> filter(fn: (r) => r._measurement == "{measurement}")"""
     tables = query_api.query(query, org=org)
     for table in tables:

@@ -5,6 +5,7 @@ from py2neo import *
 from fetch_influx import fetch_mock_data
 from make_log import make_log
 from config import *
+from pprint import pprint
 
 
 def task():
@@ -22,6 +23,7 @@ def task():
     if len(mock) == 0:
         print('No mock data found.')
         return
+    pprint(mock)
     user_clicks, user_unclicks, user_histclicks, user_ids = make_log(mock)
     try:
         for user_id in user_ids:
